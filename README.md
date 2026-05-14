@@ -45,6 +45,42 @@ This produces clusters that are both distinct and structurally meaningful while 
 
 ---
 
+# Dataset Construction
+
+A realistic view of the Autonomous System ecosystem cannot be captured from a single data source. Instead, the dataset is built through a multi-source aggregation pipeline designed to reflect three key aspects of each AS: topology, infrastructure, and security posture.
+
+## Data Construction Pipeline
+
+### Base Topology
+The CAIDA AS-Relationships dataset is used as the structural backbone of the graph. It defines global provider–customer and peering relationships between Autonomous Systems.
+
+During this stage, non-operational or "ghost" ASNs (registered networks that do not actively participate in routing) are filtered out to ensure only active infrastructure is retained.
+
+### Network Maturity
+Network registration data is collected from regional Internet registries (RIPE NCC, ARIN, APNIC, etc.).  
+AS registration age is used as a proxy for operational maturity and long-term stability.
+
+### Scale and Capacity
+BGP routing tables from RouteViews are used to map advertised IP prefixes to their corresponding ASNs.
+
+This provides an estimate of:
+- network size
+- address space ownership
+- routing footprint
+
+### Infrastructure and Security Signals
+PeeringDB is integrated to capture physical infrastructure characteristics such as data center presence and Internet Exchange Point (IXP) connectivity.
+
+Additionally, ASNs are cross-referenced with the Spamhaus DROP list to introduce binary security indicators for networks associated with malicious or abusive activity (e.g., spam or cybercrime infrastructure).
+
+---
+
+## Final Output
+
+The result is a cleaned, multi-dimensional feature space that combines structural, operational, and security-related attributes. This dataset is then used as the input for downstream unsupervised learning and clustering models.
+
+---
+
 # Traceroute and Route Analysis
 
 The notebook includes an `analyze_route` utility for working with real traceroute data. It takes a list of IP addresses from traceroute.
