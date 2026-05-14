@@ -63,20 +63,59 @@ This makes it possible to observe how traffic traverses different network tiers 
 
 Several visualization tools are included to help interpret both the latent space and the clustering results:
 
-- **PCA Projection**  
-  A 2D baseline representation of the AS ecosystem before clustering.
+## PCA Projection of the Dataset
 
-- **Raw DEC-GM Clusters**  
-  Initial probabilistic cluster assignments generated directly from the neural network.
+![PCA Projection](images/pca_projection.png)
 
-- **Cleaned Operational Tiers**  
-  Final tier structure after automatically merging very small edge-case clusters.
+2D PCA projection of the AS feature space before clustering.
 
-- **Algorithm Comparison**  
-  Side-by-side comparison of DEC-GM against:
-  - K-Means
-  - BIRCH
-  - standard Gaussian Mixture Models
+---
+
+## Raw DEC-GM Cluster Assignments
+
+![Raw Clusters](images/raw_clusters.png)
+
+Initial probabilistic cluster assignments produced directly by the DEC-GM latent space.
+
+---
+
+## Cleaned Operational Tiers
+
+![Cleaned Clusters](images/cleaned_clusters.png)
+
+Final operational tiers after automatic cleanup and edge-case cluster merging.
+
+---
+
+## Cluster Overlap Analysis
+
+![Bhattacharyya Distances](images/cluster_overlap.png)
+
+Bhattacharyya-distance analysis showing probabilistic overlap and separability between clusters.
+
+---
+
+## Confidence Distribution
+
+![Confidence Distribution](images/confidence_plot.png)
+
+Prediction confidence (entropy/probability) distribution for DEC-GM cluster assignments.
+
+---
+
+## Model Comparison
+
+![Model Comparison](images/model_comparison.png)
+
+Spatial comparison between the four final clustering approaches evaluated in the project.
+
+---
+
+## Pairwise Model Agreement
+
+![Pairwise Agreement](images/pairwise_agreement.png)
+
+Agreement matrix comparing consistency between clustering algorithms across the AS dataset.
 
 ---
 
