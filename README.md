@@ -47,10 +47,10 @@ This produces clusters that are both distinct and structurally meaningful while 
 
 # Traceroute and Route Analysis
 
-The notebook includes an `analyze_route` utility for working with real traceroute data.
+The notebook includes an `analyze_route` utility for working with real traceroute data. It takes a list of IP addresses from traceroute.
 
 The function:
-1. parses traceroute text files
+1. parses IP list text files
 2. maps each hop to its corresponding ASN
 3. determines the DEC-GM cluster assignment
 4. outputs prediction entropy for each hop
@@ -95,3 +95,5 @@ Run the notebook from top to bottom to execute the full pipeline:
 
 ```bash
 jupyter notebook as_cluster.ipynb
+```
+Take care when running the notebook like this, as it can lead to unexpected outcomes. It is recommended to run the notebook cell by cell and analyze the outputs before proceeding.
